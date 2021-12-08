@@ -27,4 +27,4 @@ Testy:
 12. Wpisanie kodu xyzzy, zresetowanie gry - wszystkie pola powinny odzyskać
 standardowy kolor.
 
-
+Link do repozytorium z projektem: https://github.com/czajemi/minesweeper
