@@ -1,7 +1,7 @@
 # Saper
 Opis zadania
  - Główne okno zawiera dwa pola tekstowe do wprowadzania rozmiaru planszy (n na m pól), planszę o wymiarach n na m pól (np. siatka przycisków), pole tekstowe na wprowadzenie liczby min na planszy, liczbę oznaczonych pól, liczbę min na planszy, oraz przycisk rozpoczęcia nowej gry,
- - Wprowadzenie mniejszego rozmiaru planszy niż 2x2 lub większego niż 15x15, liczby min mniejszej niż 0 lub więksej niż m*n powoduje wyświetlenie komunikatu o błedzie. Nie można rozpocząć gry dopóki te parametry nie są poprawne. Walidacja danych powinna wykorzystywać mechanizm wyjątków,
+ - Wprowadzenie mniejszego rozmiaru planszy niż 2x2 lub większego niż 15x15, liczby min mniejszej niż 0 lub większej niż m*n powoduje wyświetlenie komunikatu o błedzie. Nie można rozpocząć gry dopóki te parametry nie są poprawne. Walidacja danych powinna wykorzystywać mechanizm wyjątków,
  - Na początku gry na losowych polach umieszczane jest tyle min ile wskazano w polu tekstowym (każde rozłożenie min jest równie prawdopodobne).
  - Po kliknięciu lewym przycikiem na pole:
     - Jeśli jest tam mina, wyświetlana jest wiadomość o przegranej u gra się kończy,
@@ -26,5 +26,3 @@ Testy:
 11. Sprawdzenie kilku pól bez min, oznaczenie pól "tu jest mina”, rozpoczęcie nowej gry - licznik min powinien się zaktualizować, a pola zresetować.
 12. Wpisanie kodu xyzzy, zresetowanie gry - wszystkie pola powinny odzyskać
 standardowy kolor.
-
-Link do repozytorium z projektem: https://github.com/czajemi/minesweeper
