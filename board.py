@@ -68,7 +68,7 @@ class Board():
 
     
     def getLost(self):
-        self.lost
+        return self.lost
 
     def getWon(self):
         return self.numNonBombs == self.numClicked
