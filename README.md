@@ -24,5 +24,4 @@ Testy:
 9. Wygranie gry przez oznaczenie wszystkich pól z minami (można skorzystać z kodu xyzzy),
 10. Próba oznaczenia sprawdzonego pola - oczekiwane niepowodzenie,
 11. Sprawdzenie kilku pól bez min, oznaczenie pól "tu jest mina”, rozpoczęcie nowej gry - licznik min powinien się zaktualizować, a pola zresetować.
-12. Wpisanie kodu xyzzy, zresetowanie gry - wszystkie pola powinny odzyskać
-standardowy kolor.
+12. Wpisanie kodu xyzzy, zresetowanie gry - wszystkie pola powinny odzyskać standardowy kolor.
