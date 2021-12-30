@@ -24,7 +24,8 @@ class Game():
         topLeft = (0 ,0)
         for row in range(self.board.getSize()[0]):
             for col in range(self.board.getSize()[1]):
-                image = self.images["block"]
+                piece = self.board.getPiece((row, col))
+                image = self.getImage(piece)
                 self.screen.blit(image, topLeft)
                 topLeft = topLeft[0] + self.pieceSize[0], topLeft[1]
             topLeft = 0, topLeft[1] + self.pieceSize[1] 
@@ -37,3 +38,7 @@ class Game():
             image = pygame.image.load(r"images/" + fileName)
             image = pygame.transform.scale(image, self.pieceSize)
             self.images[fileName.split(".")[0]] = image
+
+    def getImage(self, piece):
+        string = "bomb" if piece.getHasBomb() else "block"
+        return self.images[string]
