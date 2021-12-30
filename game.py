@@ -40,5 +40,5 @@ class Game():
             self.images[fileName.split(".")[0]] = image
 
     def getImage(self, piece):
-        string = "bomb" if piece.getHasBomb() else "block"
+        string = "bomb" if piece.getHasBomb() else str(piece.getNumAround())
         return self.images[string]

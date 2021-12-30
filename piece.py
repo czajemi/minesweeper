@@ -11,4 +11,17 @@ class Piece():
         return self.clicked
 
     def getFlagged(self):
-        return self.flagged    
+        return self.flagged
+    
+    def setNeighbors(self, neighbors):
+        self.neighbors = neighbors
+        self.setNumAround()
+    
+    def setNumAround(self):
+        self.numAround = 0
+        for piece in self.neighbors:
+            if(piece.getHasBomb()):
+                self.numAround += 1
+
+    def getNumAround(self):
+        return self.numAround
