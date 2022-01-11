@@ -26,8 +26,10 @@ class Game():
             pygame.display.flip()
             if(self.board.getWon()):
                 text = "Victory!"
+                sound = pygame.mixer.Sound("winSound.wav")
+                sound.play()
                 self.message(text)
-                sleep(2)
+                sleep(3)
                 running = False
             elif(self.board.getLost()):
                 text = "Game over!"
