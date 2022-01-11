@@ -1,9 +1,4 @@
-from game import Game
-from board import Board
+from changeScreen import ChangeScreen
 
-size = (10, 10)
-prob = 0.1
-board = Board(size, prob)
-screenSize = (800, 800)
-game = Game(board, screenSize)
-game.run()
+if __name__ == "__main__":
+    ChangeScreen()

@@ -1,8 +1,8 @@
-import pygame 
+import pygame
+import sys
 import os
 from time import sleep
 
-from board import Board
 
 class Game():
     def __init__(self, board, screenSize):
@@ -12,9 +12,7 @@ class Game():
         self.loadImages()
 
     def run(self):
-        pygame.init()
         self.screen = pygame.display.set_mode(self.screenSize)
-        pygame.display.set_caption("Minesweeper")
         running = True
         while running:
             for event in pygame.event.get():
@@ -27,18 +25,17 @@ class Game():
             self.draw()
             pygame.display.flip()
             if(self.board.getWon()):
-                #information about win
-                font = pygame.font.SysFont("Courier New", 100, bold=pygame.font.Font.bold)
-                magenta = (255, 0, 255)
-                text = font.render('Victory!', True, magenta)
-                textRect = text.get_rect()
-                textRect.center= (400,400)
-                self.screen.blit(text, textRect)
-                pygame.display.update()
-                sleep(7)
+                text = "Victory!"
+                self.message(text)
+                sleep(2)
                 running = False
-
+            elif(self.board.getLost()):
+                text = "Game over!"
+                self.message(text)
+                sleep(2)
+                running = False
         pygame.quit()
+        sys.exit()
     
     def draw(self):
         topLeft = (0 ,0)
@@ -74,4 +71,11 @@ class Game():
         piece = self.board.getPiece(index)
         self.board.handleClick(piece, rightClick)
 
-    
+    def message(self, string):
+        font = pygame.font.SysFont("Courier New", 100, bold=pygame.font.Font.bold)
+        magenta = (255, 0, 255)
+        text = font.render(string, True, magenta)
+        textRect = text.get_rect()
+        textRect.center= (400,400)
+        self.screen.blit(text, textRect)
+        pygame.display.update()
