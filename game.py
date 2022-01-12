@@ -10,6 +10,9 @@ class Game():
         self.screenSize = screenSize
         self.pieceSize = self.screenSize[0] // self.board.getSize()[1], self.screenSize[1] // self.board.getSize()[0]
         self.loadImages()
+        self.__revealMap = False 
+        self.__cheatString = "xyzzy"
+        self.__currentCheatString = ""
 
     def run(self):
         self.screen = pygame.display.set_mode(self.screenSize)
@@ -22,6 +25,18 @@ class Game():
                     position = pygame.mouse.get_pos()
                     rightClick = pygame.mouse.get_pressed()[2]
                     self.handleClick(position, rightClick)
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_x: 
+                        self.__currentCheatString += "x"
+                    if event.key == pygame.K_y: 
+                        self.__currentCheatString += "y"
+                    if event.key == pygame.K_z: 
+                        self.__currentCheatString += "z"
+                    if self.__currentCheatString == self.__cheatString:
+                        self.__revealMap = not self.__revealMap
+                        self.__currentCheatString = ""
+                    if self.__currentCheatString not in self.__cheatString:
+                        self.__currentCheatString = ""
             self.draw()
             pygame.display.flip()
             if(self.board.getWon()):
@@ -63,7 +78,12 @@ class Game():
         if(piece.getClicked()):
             string = "bomb" if piece.getHasBomb() else str(piece.getNumAround())
         else:
-            string = "flagged" if piece.getFlagged() else "block"
+            if self.__revealMap and piece.getHasBomb():
+                string = "bomb_unclicked"
+            elif piece.getFlagged():
+                string = "flagged"
+            else:
+                string = "block"
         return self.images[string]
 
     def handleClick(self, position, rightClick):
