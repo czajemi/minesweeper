@@ -12,16 +12,14 @@ class Board():
         self.setBoard()
 
     def setBoard(self):
-        self.board = []
+        self.board = [[0 for _ in range(self.size[0])] for _ in range(self.size[1])]
         for row in range(self.size[0]):
-            row = []
             for col in range (self.size[1]):
                 hasBomb = random() < self.prob
                 if (not hasBomb):
                     self.numNonBombs += 1
                 piece = Piece(hasBomb)
-                row.append(piece)
-            self.board.append(row)
+                self.board[row][col] = piece
         self.setNeighbors()
     
     def setNeighbors(self):
